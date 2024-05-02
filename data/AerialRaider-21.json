@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "AerialRaider",
+  "risk": "2",
+  "title": "The _claim function uses external data from 0x for swaps and needs to be validated or malicious users could exploit this to direct funds incorrectly.",
+  "issueId": 21,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/21"
+}
