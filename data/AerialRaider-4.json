@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "AerialRaider",
+  "risk": "2",
+  "title": "Conversion for LRTs using the 0x API, the code only provides a general mechanism for claiming based on the token type, which may not be clear or specific enough to handle unique LRT logic or conversion rates.",
+  "issueId": 4,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/4"
+}
