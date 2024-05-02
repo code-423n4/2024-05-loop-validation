@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "AerialRaider",
+  "risk": "2",
+  "title": "convertAllETH function does not check whether there is any ETH available to convert, which could lead to a failed transaction or ineffective function calls if the contract balance is zero.",
+  "issueId": 3,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/3"
+}
