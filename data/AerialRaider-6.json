@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "AerialRaider",
+  "risk": "2",
+  "title": "The \"point system\" is not explicitly managed in the contract, suggest introducing on-chain functionalities to track and manage points.",
+  "issueId": 6,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/6"
+}
