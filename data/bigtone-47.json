@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "bigtone",
+  "risk": "2",
+  "title": "No function to recover the locked ETH balance",
+  "issueId": 47,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/47"
+}
