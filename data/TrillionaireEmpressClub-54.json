@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "TrillionaireEmpressClub",
+  "risk": "3",
+  "title": "Vulnerability in Claim and Token Swap Logic",
+  "issueId": 54,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/54"
+}
