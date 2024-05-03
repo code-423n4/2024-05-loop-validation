@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "ironsidesec",
+  "risk": "2",
+  "title": " Users that deposit ETH or WETH cannot get the correct amount of lpETH on claim (not 1 : 1)",
+  "issueId": 40,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/40"
+}
