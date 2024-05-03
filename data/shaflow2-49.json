@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "shaflow2",
+  "risk": "2",
+  "title": " The Owner cannot withdraw WETH mistakenly forwarded to the contract using the recoverERC20 function.",
+  "issueId": 49,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/49"
+}
