@@ -1,6 +1,6 @@
 ##
 
-## [L-] Risks of disabling locking ETHs after contract deployment 
+## [L-1] Risks of disabling locking ETHs after contract deployment 
 
 ### Impact
 
@@ -50,11 +50,14 @@ https://github.com/code-423n4/2024-05-loop/blob/0dc8467ccff27230e7c0530b619524cc
 
 - After loopActivation value set the onlyBeforeDate() modifiers reverts because this check become true if (block.timestamp >= limitDate) .
 
-So technically not possible to lock tokens after  ``loopActivation `` set. Reverts all locking process 
+So technically not possible to lock tokens after  ``loopActivation `` set. Reverts all locking process
+
+### Recommended Mitigation
+Exactly define when ``setLoopAddresses()`` called 
 
 ##
 
-## [L-1] Locking Mechanism Bypass via Direct ETH Transfers
+## [L-2] Locking Mechanism Bypass via Direct ETH Transfers
 
 The contract has a receive function that allows it to receive Ether directly, but this does not interact with any of the contract's state-managing functions such as lockETH or lockETHFor. This opens up a pathway where Ether could be sent to the contract without being accounted for in the totalSupply or balances, breaking the contract's internal accounting logic.
 
@@ -69,7 +72,7 @@ FILE: 2024-05-loop/src/PrelaunchPoints.sol
 
 ##
 
-## [L-2] ``if (block.timestamp <= loopActivation) { `` this check is not implemented as per docs 
+## [L-3] ``if (block.timestamp <= loopActivation) { `` this check is not implemented as per docs 
 
 The docs states that withdrawal only allowed after 7 Days once addresses are set
 
@@ -101,7 +104,7 @@ if (block.timestamp - loopActivation >= TIMELOCK) {
 
 ##
 
-## [L-2] State Update After External Calls vulnerable to Reentrancy attacks
+## [L-4] State Update After External Calls vulnerable to Reentrancy attacks
 
  In the _processLock function, the contract interacts with external tokens (via safeTransferFrom) after updating the internal state. This generally contradicts the recommended practice in Solidity to prevent reentrancy attacks, which advises updating the contract's state before making external calls.
 
@@ -134,7 +137,121 @@ Implement the Check-Effects-Intraction patteren (CEI)
 
 ## 
 
-## [L-3] 
+## [L-5] Uncertainty in calling ``setLoopAddresses() `` function
+
+The uncertainty surrounding when the setLoopAddresses() function can be executed—whether immediately after deployment or just before the 120-day threshold—is indeed a significant point of concern. 
+
+The function can technically be called at any moment before the 120-day mark, which adds an element of unpredictability. Users and stakeholders might not be aware of when these addresses could change, affecting their strategies and interactions with the contract.
+
+```solidity
+FILE: 2024-05-loop/src/PrelaunchPoints.sol
+
+/**
+     * @notice Sets the lpETH contract address
+     * @param _loopAddress address of the lpETH contract
+     * @dev Can only be set once before 120 days have passed from deployment.
+     *      After that users can only withdraw ETH.
+     */
+    function setLoopAddresses(address _loopAddress, address _vaultAddress)
+        external
+        onlyAuthorized
+        onlyBeforeDate(loopActivation)
+    {
+        lpETH = ILpETH(_loopAddress);
+        lpETHVault = ILpETHVault(_vaultAddress);
+        loopActivation = uint32(block.timestamp);
+
+        emit LoopAddressesUpdated(_loopAddress, _vaultAddress);
+    }
+
+
+```
+https://github.com/code-423n4/2024-05-loop/blob/0dc8467ccff27230e7c0530b619524cc8401e22a/src/PrelaunchPoints.sol#L342-L358
+
+##
+
+## [L-6] Hardcoded Time Delay
+
+Having a hardcoded time delay like uint32 public constant TIMELOCK = 7 days; in  code can be limiting.
+
+If you need to adjust the time delay in the future, you'll have to recompile and redeploy your contract, which can be a cumbersome process.
+
+```solidity
+FILE: 2024-05-loop/src/PrelaunchPoints.sol
+
+47: uint32 public constant TIMELOCK = 7 days;
+
+```
+https://github.com/code-423n4/2024-05-loop/blob/0dc8467ccff27230e7c0530b619524cc8401e22a/src/PrelaunchPoints.sol#L47
+
+##
+
+## [L-7] Missing the token uniqueness check in ``isTokenAllowed`` mapping
+
+The code doesn't explicitly check for duplicate entries in the ``_allowedTokens`` array. This could allow to add the same token address multiple times, and updates the same value multiple times
+
+```solidity
+FILE: 2024-05-loop/src/PrelaunchPoints.sol
+
+ // Allow intital list of tokens
+        uint256 length = _allowedTokens.length;
+        for (uint256 i = 0; i < length;) {
+            isTokenAllowed[_allowedTokens[i]] = true;
+            unchecked {
+                i++;
+            }
+        }
+
+```
+https://github.com/code-423n4/2024-05-loop/blob/0dc8467ccff27230e7c0530b619524cc8401e22a/src/PrelaunchPoints.sol#L105-L112
+
+##
+
+## [L-8] Inconsistent Data Types in Date Modifiers (``onlyBeforeDate``, ``onlyAfterDate``)
+
+The loopActivation and startClaimDate variable is declared as uint32, which can only represent values up to around 4.29 billion seconds (roughly 42.9 years). However, the modifiers onlyBeforeDate and onlyAfterDate are defined to take uint256 arguments, which can hold much larger values. This mismatch could lead to unexpected behavior and potentially creates the confusion
+
+```solidity
+FILE: 2024-05-loop/src/PrelaunchPoints.sol
+
+
+    uint32 public loopActivation;
+    uint32 public startClaimDate;
+
+172: function _processLock(address _token, uint256 _amount, address _receiver, bytes32 _referral)
+        internal
+        onlyBeforeDate(loopActivation)
+
+226: function claimAndStake(address _token, uint8 _percentage, Exchange _exchange, bytes calldata _data)
+        external
+        onlyAfterDate(startClaimDate)
+
+  modifier onlyAfterDate(uint256 limitDate) {
+        if (block.timestamp <= limitDate) {
+            revert CurrentlyNotPossible();
+        }
+        _;
+    }
+
+    modifier onlyBeforeDate(uint256 limitDate) {
+        if (block.timestamp >= limitDate) {
+            revert NoLongerPossible();
+        }
+        _;
+    }
+
+``` 
+https://github.com/code-423n4/2024-05-loop/blob/0dc8467ccff27230e7c0530b619524cc8401e22a/src/PrelaunchPoints.sol#L518-L530
+
+##
+
+## [L-9] 
+
+
+
+
+
+
 
 
 
