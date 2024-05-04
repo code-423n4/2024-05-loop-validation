@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "cholakov",
+  "risk": "3",
+  "title": "A malicious user can lock someone else's ETH without permission in the contract",
+  "issueId": 72,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/72"
+}
