@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "Sathish9098",
+  "risk": "2",
+  "title": "Risk of Post-TIMELOCK Withdrawals Due to Frontrunning Vulnerability in Withdraw Function",
+  "issueId": 69,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/69"
+}
