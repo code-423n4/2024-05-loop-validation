@@ -1,7 +1,32 @@
+##
+
+## [L-1] ``userStake * _percentage / 100`` will not give exact percentage value
+
+### POC 
+
+User has a stake (userStake) of 50 tokens.
+User wants to claim 25% of their stake, which would be 12.5 tokens.
+
+Impact on Claim Amount:
+
+In our example, 50 * 25 equals 1250.
+However, due to integer division, 1250 / 100 results in 12, not 12.5.
+
+The calculated claim amount (userClaim) becomes 12. This is less than the intended claim of 12.5 tokens due to the discarded fractional part (0.5).
+
+```solidity
+FILE: 2024-05-loop/src/PrelaunchPoints.sol
+
+  uint256 userClaim = userStake * _percentage / 100;
+            _validateData(_token, userClaim, _exchange, _data);
+            balances[msg.sender][_token] = userStake - userClaim;
+
+```
+https://github.com/code-423n4/2024-05-loop/blob/0dc8467ccff27230e7c0530b619524cc8401e22a/src/PrelaunchPoints.sol#L253-L255
 
 ##
 
-## [L-1] Risks of disabling locking ETHs after contract deployment 
+## [L-2] Risks of disabling locking ETHs after contract deployment 
 
 ### Impact
 
@@ -58,7 +83,7 @@ Exactly define when ``setLoopAddresses()`` called .
 
 ##
 
-## [L-2] Inability to Withdraw ETH in Emergency Mode Post-Conversion to lpETH
+## [L-3] Inability to Withdraw ETH in Emergency Mode Post-Conversion to lpETH
 
 After the conversion of all ETH to lpETH via convertAllETH, the withdraw function, even when called in emergency mode, faces an issue: there's no ETH left to withdraw. This is because the ETH balance is transferred out of the contract during the conversion, leaving the contract's direct balance at zero.
 
@@ -126,7 +151,7 @@ FILE: 2024-05-loop/src/PrelaunchPoints.sol
 
 ##
 
-## [L-3] Unreachable if Block in line 291
+## [L-4] Unreachable if Block in line 291
 
 If ``if (block.timestamp >= startClaimDate) {`` true then line 279 itself reverts. Line no 291 is not reached anytime.
 
@@ -173,7 +198,7 @@ https://github.com/code-423n4/2024-05-loop/blob/0dc8467ccff27230e7c0530b619524cc
 
 ##
 
-## [L-4] ``if (block.timestamp <= loopActivation) { `` this check is not implemented as per docs 
+## [L-5] ``if (block.timestamp <= loopActivation) { `` this check is not implemented as per docs 
 
 The docs states that withdrawal only allowed after 7 Days once addresses are set
 
@@ -205,7 +230,7 @@ if (block.timestamp - loopActivation >= TIMELOCK) {
 
 ##
 
-## [L-5] State Update After External Calls vulnerable to Reentrancy attacks
+## [L-6] State Update After External Calls vulnerable to Reentrancy attacks
 
  In the _processLock function, the contract interacts with external tokens (via safeTransferFrom) after updating the internal state. This generally contradicts the recommended practice in Solidity to prevent reentrancy attacks, which advises updating the contract's state before making external calls.
 
@@ -238,7 +263,7 @@ Implement the Check-Effects-Intraction patteren (CEI)
 
 ## 
 
-## [L-6] Uncertainty in calling ``setLoopAddresses() `` function
+## [L-7] Uncertainty in calling ``setLoopAddresses() `` function
 
 The uncertainty surrounding when the setLoopAddresses() function can be executed—whether immediately after deployment or just before the 120-day threshold—is indeed a significant point of concern. 
 
@@ -269,21 +294,7 @@ FILE: 2024-05-loop/src/PrelaunchPoints.sol
 ```
 https://github.com/code-423n4/2024-05-loop/blob/0dc8467ccff27230e7c0530b619524cc8401e22a/src/PrelaunchPoints.sol#L342-L358
 
-##
 
-## [L-7] Hardcoded Time Delay
-
-Having a hardcoded time delay like uint32 public constant TIMELOCK = 7 days; in  code can be limiting.
-
-If you need to adjust the time delay in the future, you'll have to recompile and redeploy your contract, which can be a cumbersome process.
-
-```solidity
-FILE: 2024-05-loop/src/PrelaunchPoints.sol
-
-47: uint32 public constant TIMELOCK = 7 days;
-
-```
-https://github.com/code-423n4/2024-05-loop/blob/0dc8467ccff27230e7c0530b619524cc8401e22a/src/PrelaunchPoints.sol#L47
 
 ##
 
