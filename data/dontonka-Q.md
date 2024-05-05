@@ -68,3 +68,30 @@ Add the following test in `PrelaunchPointsTest.t.sol` which confirm locking ETH 
 ```
 https://github.com/code-423n4/2024-05-loop/blob/main/src/PrelaunchPoints.sol#L133-L135
 https://github.com/code-423n4/2024-05-loop/blob/main/src/PrelaunchPoints.sol#L157-L162
+
+
+### **[[ 3 ]]**
+Would it make sense to ensure the `totalLpETH >= totalBalance` when calling convertAllETH, which ensure 1:1 invariant hold?
+```diff
+    function convertAllETH() external onlyAuthorized onlyBeforeDate(startClaimDate) {
+        if (block.timestamp - loopActivation <= TIMELOCK) { // @audit (L) will revert when done too early?
+            revert LoopNotActivated();
+        }
+
+        // deposits all the ETH to lpETH contract. Receives lpETH back
+        uint256 totalBalance = address(this).balance;
+        lpETH.deposit{value: totalBalance}(address(this));
+
+        totalLpETH = lpETH.balanceOf(address(this));
+
++       if (totalLpETH < totalBalance) {
++	     revert LoopNotActivated();
++       }
+
+        // Claims of lpETH can start immediately after conversion.
+        startClaimDate = uint32(block.timestamp);
+
+        emit Converted(totalBalance, totalLpETH);
+    }
+```
+https://github.com/code-423n4/2024-05-loop/blob/main/src/PrelaunchPoints.sol#L315-L330
