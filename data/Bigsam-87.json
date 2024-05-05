@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "Bigsam",
+  "risk": "2",
+  "title": "Introduce `handleExcessETH` function to maintain 1:1 ratio between total supply of eth and lpeth",
+  "issueId": 87,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/87"
+}
