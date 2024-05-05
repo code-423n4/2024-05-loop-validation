@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "John_Femi",
+  "risk": "2",
+  "title": "Mismatch on event for swap and claimedAmount",
+  "issueId": 118,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/118"
+}
