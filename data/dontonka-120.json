@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "dontonka",
+  "risk": "2",
+  "title": "`claim` and `claimAndStake` will always revert when 0x API uses Uniswap_V3",
+  "issueId": 120,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/120"
+}
