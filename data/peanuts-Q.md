@@ -132,3 +132,31 @@ Although the depositor loses out, it is still a griefing attack that manipulates
 At `convertAllETH()`, it will be better if the `totalSupply` is equal to the `totalLpETH`, then sweep the remaining ETH in the contract to the owner's address. This makes it such that the conversion rate will always be 1:1.
 
 https://github.com/code-423n4/2024-05-loop/blob/0dc8467ccff27230e7c0530b619524cc8401e22a/src/PrelaunchPoints.sol#L315
+
+### [L-06] No zero address check for setOwner and other functions
+
+`setOwner()` has no zero address check. If the owner is set incorrectly, all `onlyAuthorized` functions will fail. Set a failsafe for `setOwner()`
+
+```
+    function setOwner(address _owner) external onlyAuthorized {
+        owner = _owner;
+
+        emit OwnerUpdated(_owner);
+    }
+```
+
+https://github.com/code-423n4/2024-05-loop/blob/0dc8467ccff27230e7c0530b619524cc8401e22a/src/PrelaunchPoints.sol#L336C1-L340C6
+
+### [L-07] isTokenAllowed should be set to false in case of a mistake
+
+If the owner sets the token to true by mistake, he should be able to set it back to false, but the current iteration of the function does not allow the owner to do so.
+
+```
+    function allowToken(address _token) external onlyAuthorized {
+        isTokenAllowed[_token] = true;
+    }
+```
+
+Add a bool value in the parameter so that the owner can change the boolean value.
+
+https://github.com/code-423n4/2024-05-loop/blob/0dc8467ccff27230e7c0530b619524cc8401e22a/src/PrelaunchPoints.sol#L364C1-L366C6
