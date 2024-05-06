@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "4B",
+  "risk": "2",
+  "title": "In the Token allow list the same token can be passed more than once",
+  "issueId": 196,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/196"
+}
