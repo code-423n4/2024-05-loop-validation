@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "Cryptor",
+  "risk": "2",
+  "title": "No deadline check for the UniswapV3 call can result in transactions being maliciously executed ",
+  "issueId": 209,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/209"
+}
