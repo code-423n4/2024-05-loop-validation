@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "biakia",
+  "risk": "2",
+  "title": "Incorrect Parsing Of UniswapV3's Token Path",
+  "issueId": 143,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/143"
+}
