@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "ButterflySecure",
+  "risk": "3",
+  "title": "Attacker can bypass lock to claim any number of token they wanted",
+  "issueId": 138,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/138"
+}
