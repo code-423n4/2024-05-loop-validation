@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "phenom80",
+  "risk": "2",
+  "title": "Bug in _processLock Function Handling WETH Token Transfers ",
+  "issueId": 191,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/191"
+}
