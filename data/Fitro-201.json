@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "Fitro",
+  "risk": "2",
+  "title": "PrelaunchPoints.sol :: _claim() lacks slippage protection.",
+  "issueId": 201,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/201"
+}
