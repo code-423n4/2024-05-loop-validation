@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "mgf15",
+  "risk": "2",
+  "title": "no way to send eth that locked for contract with no receive function",
+  "issueId": 168,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/168"
+}
