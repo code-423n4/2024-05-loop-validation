@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "seeu",
+  "risk": "3",
+  "title": "Lack of input validation for `_percentage` parameter in input of the function `_claim` leads to steal of funds",
+  "issueId": 185,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/185"
+}
