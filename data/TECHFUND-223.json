@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "TECHFUND",
+  "risk": "3",
+  "title": "Staker can loose claimable rewards due to usage of stale state variable during claiming",
+  "issueId": 223,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/223"
+}
