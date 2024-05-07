@@ -1,0 +1,3 @@
+## [L-01] Functions calling contracts/addresses with transfer hooks are missing reentrancy guards
+Adherence to the check-effects-interaction pattern is commendable, but without a reentrancy guard in functions, especially with transfer hooks, users are exposed to read-only reentrancy risks. This can lead to malicious actions without altering the contract state.
+https://github.com/code-423n4/2024-05-loop/blob/main/src/PrelaunchPoints.sol#L274C3-L306C6
