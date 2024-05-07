@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "ZanyBonzy",
+  "risk": "2",
+  "title": "WETH depositors may not be able to withdraw their tokens during emergency periods before all ETH has been converted",
+  "issueId": 237,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/237"
+}
