@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "_thanos1",
+  "risk": "2",
+  "title": "Inconsistent Mapping Usage in _claim Function",
+  "issueId": 229,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/229"
+}
