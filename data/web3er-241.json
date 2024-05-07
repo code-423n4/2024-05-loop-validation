@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "web3er",
+  "risk": "3",
+  "title": "Attackers could steal the ETH contained in the PrelaunchPoints contract",
+  "issueId": 241,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/241"
+}
