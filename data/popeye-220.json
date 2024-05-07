@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "popeye",
+  "risk": "3",
+  "title": "Missing enforcement of `TIMELOCK`  in `withdraw` function stucks user's funds",
+  "issueId": 220,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/220"
+}
