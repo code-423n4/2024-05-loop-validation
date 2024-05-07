@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "Tobezzi",
+  "risk": "3",
+  "title": "`PrelaunchPoint::_processLock` doesn't verify the `address receiver` if its an address zero or msg.sender address before locking ETH for it",
+  "issueId": 262,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/262"
+}
