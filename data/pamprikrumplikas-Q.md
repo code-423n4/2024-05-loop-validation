@@ -17,3 +17,5 @@ Claims are enabled upon a successful call to `PrelaunchPoints::convertAllETH`, b
 Remove the `onlyAuthorized` modifier in `PrelaunchPoints::convertAllETH`.
 
 
+# [02] Not allowed tokens cannot be recovered if they get allowed after having been sent to the contract
+
