@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "web3er",
+  "risk": "2",
+  "title": "Vulnerable tokens cannot be removed from the isTokenAllowed map",
+  "issueId": 242,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/242"
+}
