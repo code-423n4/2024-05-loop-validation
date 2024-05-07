@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "jovemjeune",
+  "risk": "3",
+  "title": "User Funds Can Be Directly Stolen During The Claim Period By Submitting A Malicious Payload To The Call In _fillQuote Function",
+  "issueId": 261,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/261"
+}
