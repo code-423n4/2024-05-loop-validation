@@ -70,7 +70,7 @@ When claiming, the claimed amount a user is entitled to is calculated as `userSt
 ```
 The same also applies if `lpETH` is donated to the contract before ETH is converted, due to the use of `lpETH.balanceOf(address(this));` to set `totalLpETH`.
 
-Important to note that this doesn't affect ERC20 stakers.
+Important to note that this doesn't affect ERC20 stakers, so these donations introduce a disbalance in expected exchange rate of `lpETH` to `ETH` and actual exchange rate.
 
 ### Recommended Mitigation Steps
 Best way to fix it is to convert only `totalSupply` of ETH, and setting `totalLpETH` to `totalSupply`. That way, the 1 to 1 ratio will be protected. Donations will not be taken into consideration.
@@ -250,4 +250,34 @@ https://etherscan.io/address/0x8a94866df557bb7fce88eff9917237286098e590#code#F1#
 
 Rseth, unieth and ezeth can be paused, which temporarily DOSses transfers. This causes that users will not be able to lock their tokens, claim tokens, or withdraw them.
 
+***
+
+## 9. `ETH` and `lpETH` deposited after conversion cannot be retrieved, this can be fixed
+
+Links to affected code *
+
+https://github.com/code-423n4/2024-05-loop/blob/0dc8467ccff27230e7c0530b619524cc8401e22a/src/PrelaunchPoints.sol#L392
+
+### Impact
+
+After the `convertAllETH` function has been called and all the contract's `ETH` has been completely converted to lpETH, their respective values are tracked with `totalSupply` and `totalLpETH` parameters. Since these cannot be changed any longer after `startClaimDate`, their values can be used, to determine if excess `ETH` and `lpETH` have been sent to the contract, and can be used to retrieve them without disturbing the contracts internal accounting. That way the tokens will not be lost forever.
+
+### Recommended Mitigation Steps
+The function can be a variation of this:
+```solidity
+    function recoverETHorlpETH(address tokenAddress) external onlyAfterDate(startClaimDate) onlyAuthorized {
+        if (tokenAddress == address(lpETH)) {
+            excessAmount = lpETH.balanceOf(address(this)) - totalLpETH;
+            IERC20(tokenAddress).safeTransfer(owner, excessAmount);
+        }
+        else if (tokenAddress == ETH) {
+            excessAmount = address(this).balance - totalSupply;
+            (bool sent,) = owner.call{value: excessAmount}(""); 
+            if (!sent) {
+                revert FailedToSendEther();
+            }
+        }
+        emit Recovered(tokenAddress, tokenAmount);
+    }
+```
 ***
