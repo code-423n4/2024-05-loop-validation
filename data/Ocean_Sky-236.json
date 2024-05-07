@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "Ocean_Sky",
+  "risk": "3",
+  "title": "Malicious user can deposit lower valued asset in order to withdraw higher valued asset",
+  "issueId": 236,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/236"
+}
