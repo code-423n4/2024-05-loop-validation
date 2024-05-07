@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "ctmotox2",
+  "risk": "2",
+  "title": "Missing check for zero claim amounts in claim Function leading to DoS attacks",
+  "issueId": 245,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/245"
+}
