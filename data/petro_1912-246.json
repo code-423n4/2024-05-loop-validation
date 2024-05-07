@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "petro_1912",
+  "risk": "2",
+  "title": "Withdrawal Invariant is not correctly implemented, so withdrawal is available up to `startClaimDate` but not during 7 days after `loopActivation` is set.",
+  "issueId": 246,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/246"
+}
