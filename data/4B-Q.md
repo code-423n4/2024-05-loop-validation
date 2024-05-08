@@ -1,0 +1,1 @@
+[L-01] Return value of [approve](https://github.com/code-423n4/2024-05-loop/blob/40167e469edde09969643b6808c57e25d1b9c203/src/PrelaunchPoints.sol#L231) in `PrelaunchPoints::claimAndStake()` should be handled since ERC20 `approve` returns `bool` to show whether the `approve` succeeded or not.
