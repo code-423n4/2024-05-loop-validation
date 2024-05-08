@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "Tychai0s",
+  "risk": "2",
+  "title": "Incorrect Token Balance Handling Due to Unaccounted Transfer Fees",
+  "issueId": 349,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/349"
+}
