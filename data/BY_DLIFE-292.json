@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "BY_DLIFE",
+  "risk": "2",
+  "title": "When the user calls the withdraw() function and passes in a parameter of WETH, it will be reversed due to lockedAmount==0",
+  "issueId": 292,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/292"
+}
