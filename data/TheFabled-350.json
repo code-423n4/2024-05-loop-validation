@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "TheFabled",
+  "risk": "2",
+  "title": "Ownership Transfer to Zero Address May Lock Contract Administration",
+  "issueId": 350,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/350"
+}
