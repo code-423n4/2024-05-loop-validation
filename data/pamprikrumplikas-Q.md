@@ -92,8 +92,15 @@ Transfer critical priviliges in a 2-step process. Modify `PrelaunchPoints` as fo
 ```diff
 +    address public newOwner;
 
+-    event OwnerUpdated(address newOwner);
 +    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 +    event NewOwnerProposed(address indexed proposedOwner);
+
+
+-    function setOwner(address _owner) external onlyAuthorized {
+-        owner = _owner;
+-        emit OwnerUpdated(_owner);
+-    }
 
 
 +    // Step 1: Propose a new owner
@@ -111,6 +118,9 @@ Transfer critical priviliges in a 2-step process. Modify `PrelaunchPoints` as fo
 +    }
 
 ```
+
+
+# [04] No event emissions for critical state changes in `PrelaunchPoints::setEmergencyMode` and `PrelaunchPoints::allowToken`
 
 
 
