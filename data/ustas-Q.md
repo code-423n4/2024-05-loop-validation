@@ -38,3 +38,16 @@ https://github.com/code-423n4/2024-05-loop/blob/0dc8467ccff27230e7c0530b619524cc
 ```solidity
         (bool success,) = payable(exchangeProxy).call{value: 0}(_swapCallData);
 ```
+
+5. Both exchange routes during the claim process offer no deadline parameter for the swap. There's the slippage protection in place, so the impact is low.
+
+https://github.com/code-423n4/2024-05-loop/blob/35f272b8f60c9b1d8c5c04e63db172c42e2b6e97/src/PrelaunchPoints.sol#L211-L216
+
+```solidity
+    function claim(address _token, uint8 _percentage, Exchange _exchange, bytes calldata _data)
+        external
+        onlyAfterDate(startClaimDate)
+    {
+        _claim(_token, msg.sender, _percentage, _exchange, _data);
+    }
+```
