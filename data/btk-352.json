@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "btk",
+  "risk": "2",
+  "title": "Users will have to wait ~1 block to withdraw after loopActivation is set",
+  "issueId": 352,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/352"
+}
