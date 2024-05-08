@@ -29,7 +29,8 @@ The contract does not directly rely on external price feeds or oracles, which mi
 Given the contract's design and functionalities, it appears to have a low exposure to flash loan attacks. The contract does not rely on external price feeds or perform operations that could be manipulated through flash loans.
 
 # Recommendations
-
+### Possible Reentrancy Vulnerability in _fillQuote Function
+-The _fillQuote function in PrelaunchPoints.sol is susceptible to a reentrancy attack due to an unguarded external call to exchangeProxy if ever the exchangeProxy is compromised this will effect the PrelaunchPoints contract
 ### Hardcoded Selector for Uniswap V3 and 0x transformERC20 May Lead to Incompatibility
 -Hardcoded UNI_SELECTOR may become incompatible with future Uniswap versions. Recommend allowing dynamic updates to this selector to maintain compatibility with protocol upgrades, enhancing flexibility and preventing potential functionality issues or loss of funds.
 ```
