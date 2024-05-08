@@ -93,11 +93,11 @@ Transfer critical priviliges in a 2-step process. Modify `PrelaunchPoints` as fo
 
 contract PrelaunchPoints {
 
-...
+     ...
 
 +    address public newOwner;
 
-...
+     ...
 
 -    event OwnerUpdated(address newOwner);
 +    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
@@ -125,7 +125,7 @@ contract PrelaunchPoints {
 +        newOwner = address(0);
 +    }
 
-...
+     ...
 }
 ```
 
