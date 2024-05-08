@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "TheFabled",
+  "risk": "2",
+  "title": "Unaccounted ETH Deposits May Lead to Unintended `lpETH` Minting and Staking",
+  "issueId": 368,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/368"
+}
