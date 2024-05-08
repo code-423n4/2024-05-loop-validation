@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "Maroutis",
+  "risk": "2",
+  "title": "Missing withdrawal time check for non-ETH tokens",
+  "issueId": 377,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/377"
+}
