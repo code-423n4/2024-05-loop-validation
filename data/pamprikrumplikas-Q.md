@@ -90,12 +90,20 @@ With the ownership privilages transferred to an incorrect account, the whole pro
 Transfer critical priviliges in a 2-step process. Modify `PrelaunchPoints` as follows:
 
 ```diff
+
+contract PrelaunchPoints {
+
+...
+
 +    address public newOwner;
+
+...
 
 -    event OwnerUpdated(address newOwner);
 +    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 +    event NewOwnerProposed(address indexed proposedOwner);
 
+...
 
 -    function setOwner(address _owner) external onlyAuthorized {
 -        owner = _owner;
@@ -117,10 +125,52 @@ Transfer critical priviliges in a 2-step process. Modify `PrelaunchPoints` as fo
 +        newOwner = address(0);
 +    }
 
+...
+}
 ```
 
 
 # [04] No event emissions for critical state changes in `PrelaunchPoints::setEmergencyMode` and `PrelaunchPoints::allowToken`
+
+`PrelaunchPoints::setEmergencyMode` and `PrelaunchPoints::allowToken` modify critical state variables, but no events are defined and emitted to broadcast the changes.
+
+## Impact
+
+1. Reduced transparency
+2. Difficulty to track changes
+3. Inefficient or impossible integration with other contracts and services
+
+
+## Recommended Mitigation Steps
+
+Define and emit events for critical changes performed in `PrelaunchPoints::setEmergencyMode` and `PrelaunchPoints::allowToken`:
+
+
+```diff
+// Define events to be emitted on state changes
++ event EmergencyModeSet(bool mode);
++ event TokenAllowed(address token);
+
+contract PrelaunchPoints {
+
+    ...
+
+    function setEmergencyMode(bool _mode) external onlyAuthorized {
++       emit EmergencyModeSet(_mode);
+        emergencyMode = _mode;
+    }
+
+    function allowToken(address _token) external onlyAuthorized {
++       emit TokenAllowed(_token);
+        isTokenAllowed[_token] = true;
+    }
+
+    ...
+}
+```
+
+
+
 
 
 
