@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "Pechenite",
+  "risk": "2",
+  "title": "Missing slippage protection in `PrelaunchPoints.sol#claim()` function as it execute on chain sawapping",
+  "issueId": 397,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/397"
+}
