@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "TheFabled",
+  "risk": "2",
+  "title": " Potential Frontend Exploitation via Referral Codes Ingested as `bytes32` Data Type",
+  "issueId": 354,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/354"
+}
