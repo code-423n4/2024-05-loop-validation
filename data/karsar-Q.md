@@ -68,7 +68,7 @@ Recommendation
 ```solidity
  emit Claimed(msg.sender, _token, userClaim);
 ```
-``L3- ETH is not sent to the contract when depositing using lockETH function ``
+``L4- ETH is not sent to the contract when depositing using lockETH function ``
 we can see its updating balance and total supply but there is no ETH sent. Token are transferred if ``token != ETH``
 ```solidity
    function _processLock(address _token, uint256 _amount, address _receiver, bytes32 _referral)
