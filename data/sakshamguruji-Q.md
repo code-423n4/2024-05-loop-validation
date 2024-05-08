@@ -78,13 +78,27 @@ Here while updating users balance mapping we use += https://github.com/code-423n
 Use += too at L180
 
 
-## 7. Have A Function To Introduce New LRTs
+## 7. Centralization Risks
 
 ### Description:
 
-Currently the allowed tokens/LRTs are set in the constructor , i.e. once deployed no new tokens would be added to the whitelist . It is ideal to have a function callable only by the owner which would add new tokens to the whitelist and make the system more robust and adaptive.
+The owner address has excessive privileges  , this includes putting the contract in an emergency state , assigning new tokens as whitelisted tokens (might assign a token which
+is not pegged to ETH) and call to update the loop activation so that activation period ends abruptly and no users can lock their tokens.
 
 ### Recommendation:
 
-It is recommended to have a setter function for new whitelisted tokens.
+It is recommended that the owner key is a multisig with a timelock where each key resides on a different offline server.
+
+
+
+## 8. Prohibit Locking In Emergency State
+
+### Description:
+
+In an emergency state the users can withdraw their locked amounts , this might be due to many reasons and the protocol wants to give users a withdraw function to in such a scenario.
+It is recommended to pause locking too when an emergency is imposed on the contract to prohibit users from interacting with the contract any further till the emergency situation gets resolved.
+
+### Recommendation:
+
+It is recommended to pause locking too when an emergency is imposed on the contract to prohibit users from interacting with the contract any further till the emergency situation gets resolved.
 
