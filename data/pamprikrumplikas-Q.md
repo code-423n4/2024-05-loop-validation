@@ -73,3 +73,44 @@ Implement a check so that a token cannot be allowed if the contract has any bala
 +    function recoverERC20(address tokenAddress, uint256 tokenAmount) public onlyAuthorized{...}
 ```
 
+# [03] Critical privilages are transferred in one step instead of two
+
+`owner` has critical privilages in the protocol. `PrelaunchPoints::setOwner` allows the `owner` to transfer ownership (and associated critical privilages) in a one-step process.
+
+## Impact
+
+Critical `owner` priviliges could be transferred to an incorrect address e.g. if
+- `owner` mistakeanly inputs an incorrect address when calling `PrelaunchPoints::setOwner`,
+- the protocol becomes the victim of a Clipboard Replacement Attack: protocol owner copies the address that ownership is supposed to be transferred to, but a malware replaces the address on the clipboard with a different, attacker-controlled address that the protocol owner will eventually end of pasting when preparing to call `PrelaunchPoints::setOwner`.
+
+With the ownership privilages transferred to an incorrect account, the whole protocol will be compromised/unusable.
+
+## Recommended Mitigation Steps
+
+Transfer critical priviliges in a 2-step process. Modify `PrelaunchPoints` as follows:
+
+```diff
++    address public newOwner;
+
++    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
++    event NewOwnerProposed(address indexed proposedOwner);
+
+
++    // Step 1: Propose a new owner
++    function proposeNewOwner(address _newOwner) external onlyAuthorized {
++        newOwner = _newOwner;
++        emit NewOwnerProposed(_newOwner);
++    }
+
++    // Step 2: New owner accepts the ownership
++    function acceptOwnership() external {
++        require(msg.sender == newOwner, "Not the proposed owner");
++        emit OwnershipTransferred(owner, newOwner);
++        owner = newOwner;
++        newOwner = address(0);
++    }
+
+```
+
+
+
