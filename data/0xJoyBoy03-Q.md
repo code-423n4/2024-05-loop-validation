@@ -22,7 +22,7 @@ Since the protocol doesn't have any `balances[msg.sender][WETH]` when a user cal
         external
         onlyAfterDate(startClaimDate)
     {
-+        _claim(_token == ETH || _token == WETH ? ETH : _token,
++        _claim(_token == ETH || _token == address(WETH) ? ETH : _token,
             msg.sender,
            _percentage,
            _exchange,
