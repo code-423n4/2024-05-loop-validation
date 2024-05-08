@@ -28,7 +28,23 @@ The contract does not directly rely on external price feeds or oracles, which mi
 #### Flash Loan Attacks
 Given the contract's design and functionalities, it appears to have a low exposure to flash loan attacks. The contract does not rely on external price feeds or perform operations that could be manipulated through flash loans.
 
-### Recommendations
+# Recommendations
+
+### Hardcoded Selector for Uniswap V3 and 0x transformERC20 May Lead to Incompatibility
+-Hardcoded UNI_SELECTOR may become incompatible with future Uniswap versions. Recommend allowing dynamic updates to this selector to maintain compatibility with protocol upgrades, enhancing flexibility and preventing potential functionality issues or loss of funds.
+```
+bytes4 public constant UNI_SELECTOR = 0x803ba26d;//sellTokenForEthToUniswapV3()
+    bytes4 public constant TRANSFORM_SELECTOR =0x415565b0;//transformERC20()
+```
+### Insufficient Buffer Time Logic for Contract Activation
+-The contract's hardcoded 120-day activation delay after deployment lacks flexibility for immediate setup of contract addresses. This oversight could inadvertently block users from locking or depositing tokens if the deployer sets up the contract addresses right after deployment, affecting user interaction and contract utility.
+```
+loopActivation = uint32(block.timestamp + 120 days);
+```
+### Delay in Withdrawal Due to Unset Contract Addresses
+-The contract enforces a 120-day wait period before activation, without considering scenarios where deployers fail to set contract addresses. This oversight could trap user deposits within the contract for an extended duration, as they would have to wait out the entire period before being able to initiate withdrawals, significantly impacting user liquidity and trust.
+### Integration of OpenZeppelin's Ownable for Enhanced Ownership Management
+-he PrelaunchPoints smart contract currently employs a custom mechanism for managing ownership, utilizing a manually defined owner variable alongside bespoke modifiers for access control. This method, while operational, misses out on the advantages offered by established, thoroughly vetted frameworks such as OpenZeppelin's Ownable contract for handling ownership functionalities.
 ### Decentralize Governance: 
 Transition to a more decentralized governance model to reduce the risks associated with a single point of failure in the ownership model.
 ### Audit External Integrations: 
