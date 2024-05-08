@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "cheatc0d3",
+  "risk": "2",
+  "title": "Unauthorized token extraction risk can drain cantract's assets due to the unvalidated percentage parameter in the `claim` function",
+  "issueId": 358,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/358"
+}
