@@ -169,6 +169,35 @@ contract PrelaunchPoints {
 }
 ```
 
+# [05] Missing input validation for `_percentage` in `PrelaunchPoints::_claim`
+
+`PrelaunchPoints::_claim` does not perform input validation on `_percentage`. Transaction flow will continue and only fails much later in the execution. 
+
+## Impact 
+Users calling `PrelaunchPoints::claim` or `PrelaunchPoints::claimAndStake` and accidentally inputting `0` for `_percentage` will waste more gas, as the transaction will fail much later in the execution.
+
+## Recommended Mitigation Steps
+
+Perform input validation on `_percentage` as follows:
+
+```diff
+
+    function _claim(address _token, address _receiver, uint8 _percentage, Exchange _exchange, bytes calldata _data)
+        internal
+        returns (uint256 claimedAmount)
+    {
+        uint256 userStake = balances[msg.sender][_token];
+        if (userStake == 0) {
+            revert NothingToClaim();
+        }
+
++       require(_percentage > 0 && _percentage <= 100, "Invalid percentage value");
+
+
+    }
+```
+
+
 
 
 
