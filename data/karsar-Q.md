@@ -68,8 +68,61 @@ Recommendation
 ```solidity
  emit Claimed(msg.sender, _token, userClaim);
 ```
+``L3- ETH is not sent to the contract when depositing using lockETH function ``
+we can see its updating balance and total supply but there is no ETH sent. Token are transferred if ``token != ETH``
+```solidity
+   function _processLock(address _token, uint256 _amount, address _receiver, bytes32 _referral)
+        internal
+        onlyBeforeDate(loopActivation)
+    {
+        if (_amount == 0) {
+            revert CannotLockZero();
+        }
+        if (_token == ETH) {
+            totalSupply = totalSupply + _amount;
+            balances[_receiver][ETH] += _amount;
+        } else {
+            if (!isTokenAllowed[_token]) {
+                revert TokenNotAllowed();
+            }
+            IERC20(_token).safeTransferFrom(msg.sender, address(this), _amount);
 
+            if (_token == address(WETH)) {
+                WETH.withdraw(_amount);
+                totalSupply = totalSupply + _amount;
+                balances[_receiver][ETH] += _amount;
+            } else {
+                balances[_receiver][_token] += _amount;
+            }
+        }
 
+        emit Locked(_receiver, _amount, _token, _referral);
+    }
+Recommendation
+set token transfer after the if statements ,so it will send tokens according to token deposited 
+```solidity
+ if (_token == ETH) {
+            totalSupply = totalSupply + _amount;
+            balances[_receiver][ETH] += _amount;
+        } else {
+            if (!isTokenAllowed[_token]) {
+                revert TokenNotAllowed();
+            }
+          
+
+            if (_token == address(WETH)) {
+                WETH.withdraw(_amount);
+                totalSupply = totalSupply + _amount;
+                balances[_receiver][ETH] += _amount;
+            } else {
+                balances[_receiver][_token] += _amount;
+            }
+        }
+  IERC20(_token).safeTransferFrom(msg.sender, address(this), _amount);
+        emit Locked(_receiver, _amount, _token, _referral);
+```
+
+```
 ``NC-1 - 0x address check in function setOwner``
 Recommendation
 ```solidity
