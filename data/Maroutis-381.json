@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "Maroutis",
+  "risk": "2",
+  "title": "Lack of slippage protection and deadline param exposes users to sandwich attacks",
+  "issueId": 381,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/381"
+}
