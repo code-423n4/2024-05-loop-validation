@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "Evo",
+  "risk": "2",
+  "title": "Attacker can overload the backend by sending too many events in _processLock",
+  "issueId": 389,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/389"
+}
