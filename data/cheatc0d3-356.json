@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "cheatc0d3",
+  "risk": "2",
+  "title": "0x API Dependancy creates a single point of failure",
+  "issueId": 356,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/356"
+}
