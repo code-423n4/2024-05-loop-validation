@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "smbv-1923",
+  "risk": "2",
+  "title": "Malicious attacker would gain more 20% points by refering to themselves",
+  "issueId": 399,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/399"
+}
