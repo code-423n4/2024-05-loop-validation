@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "Ragnark_323",
+  "risk": "3",
+  "title": "Potential Mismatch Between User-Specified Amount and 0x API Data Leading to Transaction Failures",
+  "issueId": 287,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/287"
+}
