@@ -30,7 +30,46 @@ ERC20 funds are lost in the following scenario:
 3. Protocol owner allows `tokenA` in the protocol, and does not check whether the contract already has any balance of the token.
 4. When trying to recover the now allowed `tokenA` for `UserA`, `PrelaunchPoints::recoverERC20` will revert with `NotValidToken`.
 
+Proof of code:
+
+```javascript
+    function test_cannotRecoverTokenIfWasAllowedMeanwhile() public {
+        address user = makeAddr("user");
+        uint256 balance = 2e18;
+
+        // token that is not allowed yet
+        LRToken lrtB = new LRToken();
+        lrtB.mint(address(this), INITIAL_SUPPLY);
+        lrtB.transfer(user, balance);
+
+        vm.startPrank(user);
+        lrtB.approve(address(prelaunchPoints), balance);
+        lrtB.transfer(address(prelaunchPoints), balance);
+        vm.stopPrank();
+
+        // when it is allowed, it is possible to recover
+        prelaunchPoints.recoverERC20(address(lrtB), balance / 2);
+
+        // when it gets allowed, it becomes impossible to recover
+        prelaunchPoints.allowToken(address(lrtB));
+        vm.expectRevert(PrelaunchPoints.NotValidToken.selector);
+        prelaunchPoints.recoverERC20(address(lrtB), balance / 2);
+    }
+```
+
 ## Recommended Mitigation Steps
 
 Implement a check so that a token cannot be allowed if the contract has any balance in that token - i.e. before allowing `token X`, the protocol owner will need to recover any funds of `token X`  from the protocol.
+
+```diff
+    function allowToken(address _token) external onlyAuthorized {
++        if (_token.balanceOf(address(this)) != 0) {
++            recoverERC20(_token, _token.balanceOf(address(this)));
++        }
+        isTokenAllowed[_token] = true;
+    }
+
+-    function recoverERC20(address tokenAddress, uint256 tokenAmount) external onlyAuthorized{...}
++    function recoverERC20(address tokenAddress, uint256 tokenAmount) public onlyAuthorized{...}
+```
 
