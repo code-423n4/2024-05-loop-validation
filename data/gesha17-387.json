@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "gesha17",
+  "risk": "3",
+  "title": "User can submit claims with percentage larger than 100 and steal funds",
+  "issueId": 387,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/387"
+}
