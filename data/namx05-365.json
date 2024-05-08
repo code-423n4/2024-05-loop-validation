@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "namx05",
+  "risk": "3",
+  "title": "Missing Handling of Fees on ERC20 Token Transfers",
+  "issueId": 365,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/365"
+}
