@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "Kirkeelee",
+  "risk": "2",
+  "title": "WETH deposits can't be claimed or withdrawn if claim() or withdraw() is called with WETH address",
+  "issueId": 378,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/378"
+}
