@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "0xe4669da",
+  "risk": "3",
+  "title": "[H-02] `claimedAmount` variable in `PrelaunchPoints::_claim()` function is computed wrongly in case the token is not `ETH` and can result in loss of funds.",
+  "issueId": 311,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/311"
+}
