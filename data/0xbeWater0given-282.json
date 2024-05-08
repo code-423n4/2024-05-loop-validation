@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "0xbeWater0given",
+  "risk": "2",
+  "title": "Risk of ETH Lockup Due to Unexecuted `convertAllETH()` Function",
+  "issueId": 282,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/282"
+}
