@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "cholakov",
+  "risk": "3",
+  "title": "User balance not updated leads to them claiming twice the amount of lpETH they should",
+  "issueId": 279,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/279"
+}
