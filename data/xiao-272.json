@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "xiao",
+  "risk": "3",
+  "title": "Use flash loans to manipulate totalSupply to significantly reduce the claimedAmount of other users",
+  "issueId": 272,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/272"
+}
