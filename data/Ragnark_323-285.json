@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "Ragnark_323",
+  "risk": "3",
+  "title": "Users can Claim more than they stake/lock Due to Unchecked `_Percentage` Value and `userClaim<=userStake`",
+  "issueId": 285,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/285"
+}
