@@ -128,3 +128,64 @@ breaks the invariant.
 ### Recommendation
 
 Codebase logic should updated in such a way that user can withdraw his locked `ETH` while `emergencyMode: true`.
+
+
+## [L-04] As ETH:lpETH value must be 1:1, but while emitting event in `_fillQuote` and `_claim` it mismatches.
+
+### Context
+
+https://github.com/code-423n4/2024-05-loop/blob/40167e469edde09969643b6808c57e25d1b9c203/src/PrelaunchPoints.sol#L265
+
+https://github.com/code-423n4/2024-05-loop/blob/40167e469edde09969643b6808c57e25d1b9c203/src/PrelaunchPoints.sol#L504
+
+### Description
+
+So sceanrio where somone mistakly sends ETH into the contract, so now he wont be
+able to get those ETH back ever. But that's not the issue, issue of Event values
+mismatches -
+
+Now if a normal user try to claim his LpETH on his locked ERC20 token then in
+`function _fillQuote` this line -
+`boughtETHAmount = address(this).balance - boughtETHAmount;` which tells the
+[New Balance -old Balance] is what user `boughtETHAmount` which user is supposed
+to get for his locked token, which then is used in Event -
+`emit SwappedTokens(address(_sellToken), _amount, boughtETHAmount);`.
+
+But the main issue comes when in `function _claim` in else condition -
+
+```
+@> claimedAmount = address(this).balance;
+lpETH.deposit{value: claimedAmount}(_receiver);
+}
+ emit Claimed(msg.sender, _token, claimedAmount);
+```
+
+because of this line `claimedAmount = address(this).balance;` it deposit that
+amount in lpETH contract and get back those LPETH as claim for that specific
+user, which will be more than what that user deserves for his locked token
+amount, this is because someone sent ETH from outside of contract.
+
+And in `function _claim` as the Event -
+` emit Claimed(msg.sender, _token, claimedAmount);` it emits different value of
+`claimedAmount` as compared to `boughtETHAmount` , where as this both must be
+same as the ETH:lpETH ratio is 1:1
+
+### Recommendation
+
+Before emitting `event Claimed` in `function _claim`, update the value of
+`claimAmount` as same as `boughtETHAmount` by -
+
+```
+ // ... existing code ...
+
+    _fillQuote(IERC20(_token), userClaim, _data);
+
+            // Convert swapped ETH to lpETH (1 to 1 conversion)
+            claimedAmount = address(this).balance;
+            lpETH.deposit{value: claimedAmount}(_receiver);
+        }
+
+    @>    claimedAmount = address(this).balance - claimedAmount
+        emit Claimed(msg.sender, _token, claimedAmount);
+    }
+```
