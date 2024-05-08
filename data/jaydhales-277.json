@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "jaydhales",
+  "risk": "2",
+  "title": "0x protocol calldata validation does not prevent the recipient from being a zero address when using UniswapV3.",
+  "issueId": 277,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/277"
+}
