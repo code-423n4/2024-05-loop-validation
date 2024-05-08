@@ -209,7 +209,7 @@ Loss of funds; this would essentially be equivalent to burning tokens.
 
 ## Recommended Mitigation Steps
 
-Change the code as follows:
+Ensure the recipient is strictly the contract itself to prevent unintended token loss:
 
 ```diff
    function _validateData(address _token, uint256 _amount, Exchange _exchange, bytes calldata _data) internal view {
