@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "cholakov",
+  "risk": "2",
+  "title": "Not updating totalSupply when converting all ETH to lpETH can lead to wrong calculations",
+  "issueId": 299,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/299"
+}
