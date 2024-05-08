@@ -1,0 +1,8 @@
+{
+  "contest": 371,
+  "handle": "unique",
+  "risk": "3",
+  "title": " The user's balance is zeroed out without successfully withdrawing their funds",
+  "issueId": 305,
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/305"
+}
