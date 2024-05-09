@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Consider adding disallowToken instead of only allowToken function",
   "issueId": 15,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/15"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/15",
+  "validatedIssueId": 98,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/98"
 }
