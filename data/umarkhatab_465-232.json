@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Lack of method for removing allowedTokens can brick the system",
   "issueId": 232,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/232"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/232",
+  "validatedIssueId": 91,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/91"
 }
