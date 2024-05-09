@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Protocol Cannot Disallow Unwanted or Blacklist Tokens After it has been Allowed",
   "issueId": 24,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/24"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/24",
+  "validatedIssueId": 97,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/97"
 }
