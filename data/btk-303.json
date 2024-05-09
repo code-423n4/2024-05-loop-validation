@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Users can break a main invariant by manipulating the exchange rate",
   "issueId": 303,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/303"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/303",
+  "validatedIssueId": 31,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/31"
 }
