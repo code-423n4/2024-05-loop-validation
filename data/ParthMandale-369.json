@@ -4,5 +4,7 @@
   "risk": "Q",
   "title": "QA Report",
   "issueId": 369,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/369"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/369",
+  "validatedIssueId": 104,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/104"
 }
