@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Persistent malicious or faulty tokens due to the lack of functionality to disallow tokens",
   "issueId": 359,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/359"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/359",
+  "validatedIssueId": 61,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/61"
 }
