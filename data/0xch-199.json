@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Insufficient Validation of _validateData funcion",
   "issueId": 199,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/199"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/199",
+  "validatedIssueId": 76,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/76"
 }
