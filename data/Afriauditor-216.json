@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Permanent Whitelisting in PrelaunchPoints Contract Poses Security Risks",
   "issueId": 216,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/216"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/216",
+  "validatedIssueId": 93,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/93"
 }
