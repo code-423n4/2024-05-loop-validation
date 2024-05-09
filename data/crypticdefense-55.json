@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Loss of funds for users who claim vested `lpETH` by swapping via `UniswapV3`",
   "issueId": 55,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/55"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/55",
+  "validatedIssueId": 74,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/74"
 }
