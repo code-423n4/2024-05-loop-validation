@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "[M-01] After global conversion is done using `PrelaunchPoints::convertAllETH` and emergency mode is activated, LRT lockers will be able to withdraw their staked principal LRTs but ETH/WETH lockers will not be able to withdraw.",
   "issueId": 314,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/314"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/314",
+  "validatedIssueId": 78,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/78"
 }
