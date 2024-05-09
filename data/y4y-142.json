@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "It's possible for an user to lock and get more lpETH even after `loopActivation` timestamp",
   "issueId": 142,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/142"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/142",
+  "validatedIssueId": 38,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/38"
 }
