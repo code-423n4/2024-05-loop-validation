@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Direct ETH transfer to the protocol will break one of its main invariants",
   "issueId": 113,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/113"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/113",
+  "validatedIssueId": 43,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/43"
 }
