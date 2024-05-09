@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "User can skip locking mechanism funnelling in ether deposits to mint `lpETH` when the time deemed to do so is long past",
   "issueId": 31,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/31"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/31",
+  "validatedIssueId": 56,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/56"
 }
