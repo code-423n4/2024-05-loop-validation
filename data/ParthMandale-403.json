@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Incorrect Validation Logic for Swap Recipient Address in `function _validateData`",
   "issueId": 403,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/403"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/403",
+  "validatedIssueId": 7,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/7"
 }
