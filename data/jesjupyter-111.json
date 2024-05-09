@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "User may claim more LpETH due to ETH being mistakenly sent to the contract",
   "issueId": 111,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/111"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/111",
+  "validatedIssueId": 44,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/44"
 }
