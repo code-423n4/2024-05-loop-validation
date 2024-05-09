@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Missing Token Removal Functionality",
   "issueId": 363,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/363"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/363",
+  "validatedIssueId": 84,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/84"
 }
