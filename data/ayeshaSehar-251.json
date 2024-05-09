@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Recipient address(0) may result in loss of funds",
   "issueId": 251,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/251"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/251",
+  "validatedIssueId": 10,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/10"
 }
