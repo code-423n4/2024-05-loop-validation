@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "During emergency withdraw() if the token is ERC20 then it doesn't check block.timestamp with `startClaimDate`",
   "issueId": 393,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/393"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/393",
+  "validatedIssueId": 14,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/14"
 }
