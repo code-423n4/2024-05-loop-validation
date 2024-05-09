@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "it is possible to claim `lpETH` anytime after the `startClaimDate` without locking assets from before",
   "issueId": 167,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/167"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/167",
+  "validatedIssueId": 6,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/6"
 }
