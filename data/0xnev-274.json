@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Availability of deposit invariant can be bypassed",
   "issueId": 274,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/274"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/274",
+  "validatedIssueId": 33,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/33"
 }
