@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Tokens cannot be removed from Allowedlist once added",
   "issueId": 222,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/222"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/222",
+  "validatedIssueId": 92,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/92"
 }
