@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "function `_validateData` Allows recipient to be set to zero address if `if (_exchange == Exchange.UniswapV3)`",
   "issueId": 215,
-  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/215"
+  "issueUrl": "https://github.com/code-423n4/2024-05-loop-validation/issues/215",
+  "validatedIssueId": 11,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-05-loop-findings/issues/11"
 }
